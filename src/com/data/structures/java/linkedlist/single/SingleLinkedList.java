@@ -162,10 +162,57 @@ public class SingleLinkedList {
             temp = temp.link;
         }
         if (null == temp.link) {
-            System.out.print("You can only insert upto : " + i + " position.");
+            System.out.print("You can only insert up to : " + i + " position.");
         } else {
             node.link = temp.link;
             temp.link = node;
+        }
+    }
+
+    public void deleteFirst() {
+        if (null == start) {
+            System.out.print("List is empty...");
+            return;
+        }
+        start = start.link;
+    }
+
+    public void deleteLast() {
+        if (null == start) {
+            System.out.print("List is empty...");
+            return;
+        }
+        if (null == start.link) {
+            start = null;
+            return;
+        }
+        SingleLinkedListNode temp = start;
+        while (null != temp.link.link) {
+            temp = temp.link;
+        }
+        temp.link = null;
+    }
+
+    public void deleteSpecific(int nodeValue) {
+        if (null == start) {
+            System.out.print("List is empty...");
+            return;
+        }
+        if (start.info == nodeValue) {
+            start = start.link;
+            return;
+        }
+        SingleLinkedListNode temp = start;
+        while (null != temp.link) {
+            if (temp.link.info == nodeValue) {
+                break;
+            }
+            temp = temp.link;
+        }
+        if (null == temp.link) {
+            System.out.print(nodeValue + " does not exist in the list.");
+        } else {
+            temp.link = temp.link.link;
         }
     }
 }

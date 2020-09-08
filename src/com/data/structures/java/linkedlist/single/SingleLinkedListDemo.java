@@ -20,12 +20,15 @@ public class SingleLinkedListDemo {
             System.out.println("6. Insert after specific node.");
             System.out.println("7. Insert before specific node.");
             System.out.println("8. Insert at specific position.");
-            System.out.println("9. Quit.");
+            System.out.println("9. Delete first node.");
+            System.out.println("10. Delete last node.");
+            System.out.println("11. Delete specific node.");
+            System.out.println("12. Quit.");
 
             System.out.print("Enter you choice : ");
             choice = scanner.nextInt();
 
-            if (choice == 9) {
+            if (choice == 12) {
                 break;
             }
 
@@ -73,6 +76,17 @@ public class SingleLinkedListDemo {
                     System.out.print("Enter the position at which new node has to be inserted : ");
                     position = scanner.nextInt();
                     list.insertAtPosition(data, position);
+                    break;
+                case 9 :
+                    list.deleteFirst();
+                    break;
+                case 10 :
+                    list.deleteLast();
+                    break;
+                case 11 :
+                    System.out.print("Enter the element to be deleted : ");
+                    element = scanner.nextInt();
+                    list.deleteSpecific(element);
                     break;
                 default :
                     System.out.println("Wrong choice.");
