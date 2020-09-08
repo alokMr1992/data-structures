@@ -140,4 +140,32 @@ public class SingleLinkedList {
             temp.link = node;
         }
     }
+
+    public void insertAtPosition(int data, int position) {
+        if(position <= 0) {
+            System.out.print("Cannot insert at position : " + position);
+            return;
+        }
+        if (null == start) {
+            System.out.print("List is empty...");
+            return;
+        }
+        SingleLinkedListNode node = new SingleLinkedListNode(data);
+        if (position == 1) {
+            node.link = start;
+            start = node;
+            return;
+        }
+        int i;
+        SingleLinkedListNode temp = start;
+        for (i = 1; i < position - 1 && null != temp.link; i++) {
+            temp = temp.link;
+        }
+        if (null == temp.link) {
+            System.out.print("You can only insert upto : " + i + " position.");
+        } else {
+            node.link = temp.link;
+            temp.link = node;
+        }
+    }
 }
