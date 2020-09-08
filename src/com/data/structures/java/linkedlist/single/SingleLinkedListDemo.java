@@ -23,12 +23,13 @@ public class SingleLinkedListDemo {
             System.out.println("9. Delete first node.");
             System.out.println("10. Delete last node.");
             System.out.println("11. Delete specific node.");
-            System.out.println("12. Quit.");
+            System.out.println("12. Reverse List.");
+            System.out.println("13. Quit.");
 
             System.out.print("Enter you choice : ");
             choice = scanner.nextInt();
 
-            if (choice == 12) {
+            if (choice == 13) {
                 break;
             }
 
@@ -87,6 +88,9 @@ public class SingleLinkedListDemo {
                     System.out.print("Enter the element to be deleted : ");
                     element = scanner.nextInt();
                     list.deleteSpecific(element);
+                    break;
+                case 12 :
+                    list.reverseList();
                     break;
                 default :
                     System.out.println("Wrong choice.");

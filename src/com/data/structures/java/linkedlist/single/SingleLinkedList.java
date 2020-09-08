@@ -215,4 +215,20 @@ public class SingleLinkedList {
             temp.link = temp.link.link;
         }
     }
+
+    public void reverseList() {
+        if (null == start) {
+            System.out.print("List is empty...");
+        }
+        SingleLinkedListNode previous, current, next;
+        previous = null;
+        current = start;
+        while (null != current) {
+            next = current.link;
+            current.link = previous;
+            previous = current;
+            current = next;
+        }
+        start = previous;
+    }
 }
