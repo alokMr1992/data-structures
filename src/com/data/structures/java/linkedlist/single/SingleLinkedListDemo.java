@@ -24,12 +24,14 @@ public class SingleLinkedListDemo {
             System.out.println("10. Delete last node.");
             System.out.println("11. Delete specific node.");
             System.out.println("12. Reverse List.");
-            System.out.println("13. Quit.");
+            System.out.println("13. Bubble sort by exchanging data.");
+            System.out.println("14. Bubble sort by exchanging links.");
+            System.out.println("15. Quit.");
 
             System.out.print("Enter you choice : ");
             choice = scanner.nextInt();
 
-            if (choice == 13) {
+            if (choice == 15) {
                 break;
             }
 
@@ -91,6 +93,12 @@ public class SingleLinkedListDemo {
                     break;
                 case 12 :
                     list.reverseList();
+                    break;
+                case 13 :
+                    list.bubbleSortByData();
+                    break;
+                case 14 :
+                    list.bubbleSortByLinks();
                     break;
                 default :
                     System.out.println("Wrong choice.");

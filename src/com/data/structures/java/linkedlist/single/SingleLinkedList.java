@@ -231,4 +231,41 @@ public class SingleLinkedList {
         }
         start = previous;
     }
+
+    public void bubbleSortByData() {
+        SingleLinkedListNode end, temp, nextTemp;
+
+        for (end = null; end != start.link; end = temp) {
+            for (temp = start; temp.link != end; temp = temp.link) {
+                nextTemp = temp.link;
+                if (temp.info > nextTemp.info) {
+                    int aux = temp.info;
+                    temp.info = nextTemp.info;
+                    nextTemp.info = aux;
+                }
+            }
+        }
+    }
+
+    public void bubbleSortByLinks() {
+        SingleLinkedListNode end, temp, nextTemp, previousTemp, aux;
+
+        for (end = null; end != start.link; end = temp) {
+            for (previousTemp = temp = start; temp.link != end; previousTemp = temp, temp = temp.link) {
+                nextTemp = temp.link;
+                if (temp.info > nextTemp.info) {
+                    temp.link = nextTemp.link;
+                    nextTemp.link = temp;
+                    if (temp != start) {
+                        previousTemp.link = nextTemp;
+                    } else {
+                        start = nextTemp;
+                    }
+                    aux = temp;
+                    temp = nextTemp;
+                    nextTemp = aux;
+                }
+            }
+        }
+    }
 }
