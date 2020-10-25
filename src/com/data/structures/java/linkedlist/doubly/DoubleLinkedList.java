@@ -127,4 +127,33 @@ public class DoubleLinkedList {
             temp.prev = node;
         }
     }
+
+    public void deleteFirst() {
+        if (null == start) {
+            System.out.print("List is empty...");
+            return;
+        }
+        if (null == start.next) {
+            start = null;
+            return;
+        }
+        start = start.next;
+        start.prev = null;
+    }
+
+    public void deleteLast() {
+        if (null == start) {
+            System.out.print("List is empty...");
+            return;
+        }
+        if (null == start.next) {
+            start = null;
+            return;
+        }
+        DoubleLinkedListNode temp = start;
+        while (null != temp.next) {
+            temp = temp.next;
+        }
+        temp.prev.next = null;
+    }
 }

@@ -58,6 +58,12 @@ public class DoubleLinkedListDemo {
                     element = scanner.nextInt();
                     list.insertBefore(data, element);
                     break;
+                case 6 :
+                    list.deleteFirst();
+                    break;
+                case 7 :
+                    list.deleteLast();
+                    break;
             }
             System.out.println();
         }
