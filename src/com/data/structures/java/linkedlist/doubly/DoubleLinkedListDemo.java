@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class DoubleLinkedListDemo {
 
     public static void main(String[] args) {
-        int choice, data;
+        int choice, data, element;
         Scanner scanner = new Scanner(System.in);
         DoubleLinkedList list = new DoubleLinkedList();
         list.createList();
@@ -17,17 +17,16 @@ public class DoubleLinkedListDemo {
             System.out.println("3. Insert at the end.");
             System.out.println("4. Insert after specific node.");
             System.out.println("5. Insert before specific node.");
-            System.out.println("6. Insert in empty list.");
-            System.out.println("7. Delete first node.");
-            System.out.println("8. Delete last node.");
-            System.out.println("9. Delete specific node.");
-            System.out.println("10. Reverse List.");
-            System.out.println("11. Quit.");
+            System.out.println("6. Delete first node.");
+            System.out.println("7. Delete last node.");
+            System.out.println("8. Delete specific node.");
+            System.out.println("9. Reverse List.");
+            System.out.println("10. Quit.");
 
             System.out.print("Enter you choice : ");
             choice = scanner.nextInt();
 
-            if (choice == 11) {
+            if (choice == 10) {
                 break;
             }
 
@@ -39,6 +38,25 @@ public class DoubleLinkedListDemo {
                     System.out.print("Enter the element to be inserted : ");
                     data = scanner.nextInt();
                     list.insertAtBeginning(data);
+                    break;
+                case 3 :
+                    System.out.print("Enter the element to be inserted : ");
+                    data = scanner.nextInt();
+                    list.insertAtEnd(data);
+                    break;
+                case 4 :
+                    System.out.print("Enter the element to be inserted : ");
+                    data = scanner.nextInt();
+                    System.out.print("Enter the element after which new node has to be inserted : ");
+                    element = scanner.nextInt();
+                    list.insertAfter(data, element);
+                    break;
+                case 5 :
+                    System.out.print("Enter the element to be inserted : ");
+                    data = scanner.nextInt();
+                    System.out.print("Enter the element before which new node has to be inserted : ");
+                    element = scanner.nextInt();
+                    list.insertBefore(data, element);
                     break;
             }
             System.out.println();

@@ -67,4 +67,64 @@ public class DoubleLinkedList {
         temp.next = node;
         node.prev = temp;
     }
+
+    public void insertAfter(int data, int element) {
+        if (null == start) {
+            System.out.println("List is empty...");
+            return;
+        }
+
+        DoubleLinkedListNode node = new DoubleLinkedListNode(data);
+        DoubleLinkedListNode temp = start;
+        while (null != temp) {
+            if (temp.info == element) {
+                break;
+            }
+            temp = temp.next;
+        }
+
+        if (null == temp) {
+            System.out.print(element + " doesn't exist in the list...");
+        } else {
+            node.prev = temp;
+            node.next = temp.next;
+            if (null != temp.next) {
+                temp.next.prev = node;
+            }
+            temp.next = node;
+        }
+    }
+
+    public void insertBefore(int data, int element) {
+        if (null == start) {
+            System.out.println("List is empty...");
+            return;
+        }
+
+        DoubleLinkedListNode node = new DoubleLinkedListNode(data);
+
+        if (start.info == element) {
+            node.next = start;
+            start.prev = node;
+            start = node;
+            return;
+        }
+
+        DoubleLinkedListNode temp = start;
+        while (null != temp) {
+            if (temp.info == element) {
+                break;
+            }
+            temp = temp.next;
+        }
+
+        if (null == temp) {
+            System.out.print(element + " doesn't exist in the list...");
+        } else {
+            node.prev = temp.prev;
+            node.next = temp;
+            temp.prev.next = node;
+            temp.prev = node;
+        }
+    }
 }
