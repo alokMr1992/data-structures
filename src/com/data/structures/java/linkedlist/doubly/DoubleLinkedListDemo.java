@@ -64,6 +64,14 @@ public class DoubleLinkedListDemo {
                 case 7 :
                     list.deleteLast();
                     break;
+                case 8 :
+                    System.out.print("Enter the element to be deleted : ");
+                    data = scanner.nextInt();
+                    list.deleteNode(data);
+                    break;
+                case 9 :
+                    list.reverseList();
+                    break;
             }
             System.out.println();
         }

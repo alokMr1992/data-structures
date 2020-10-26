@@ -156,4 +156,59 @@ public class DoubleLinkedList {
         }
         temp.prev.next = null;
     }
+
+    public void deleteNode(int data) {
+        if (null == start) {
+            System.out.print("List is empty...");
+            return;
+        }
+        if (null == start.next) {
+            if (start.info == data) {
+                start = null;
+            } else {
+                System.out.print(data + " is not present in the list.");
+            }
+            return;
+        }
+        if (start.info == data) {
+            start = start.next;
+            start.prev = null;
+            return;
+        }
+        DoubleLinkedListNode temp = start.next;
+        while (null != temp) {
+            if (temp.info == data) {
+                break;
+            }
+            temp = temp.next;
+        }
+        if (null == temp) {
+            System.out.print(data + " is not present in the list.");
+        } else {
+            temp.prev.next = temp.next;
+            if (null != temp.next) {
+                temp.next.prev = temp.prev;
+            }
+        }
+    }
+
+    public void reverseList() {
+        if (null == start) {
+            System.out.print("List is empty...");
+            return;
+        }
+
+        DoubleLinkedListNode backward = start;
+        DoubleLinkedListNode forward = backward.next;
+        backward.next = null;
+        backward.prev = forward;
+
+        while (null != forward) {
+            forward.prev = forward.next;
+            forward.next = backward;
+            backward = forward;
+            forward = forward.prev;
+        }
+        start = backward;
+    }
 }
