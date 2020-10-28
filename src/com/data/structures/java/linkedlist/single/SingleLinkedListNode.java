@@ -7,6 +7,6 @@ public class SingleLinkedListNode {
 
     public SingleLinkedListNode(int info) {
         this.info = info;
-        link = null;
+        this.link = null;
     }
 }
