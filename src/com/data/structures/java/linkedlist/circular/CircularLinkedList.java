@@ -71,4 +71,29 @@ public class CircularLinkedList {
         last = temp;
         last.link = last;
     }
+
+    public void insertAfter(int data, int element) {
+        if (null == last) {
+            System.out.print("List is empty...");
+            return;
+        }
+        CircularLinkedListNode temp = last.link;
+        do {
+            if (temp.info == element) {
+                break;
+            }
+            temp = temp.link;
+        } while (temp != last.link);
+
+        if (temp == last.link && temp.info != element) {
+            System.out.print(element + " is not present in the list.");
+        } else {
+            CircularLinkedListNode node = new CircularLinkedListNode(data);
+            node.link = temp.link;
+            temp.link = node;
+            if (temp == last) {
+                last = node;
+            }
+        }
+    }
 }
