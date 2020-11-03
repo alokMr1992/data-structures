@@ -109,4 +109,51 @@ public class CircularLinkedList {
         last.link = last.link.link;
     }
 
+    public void deleteLast() {
+        if (null == last) {
+            System.out.print("List is empty...");
+            return;
+        }
+        if (last.link == last) {
+            last = null;
+            return;
+        }
+        CircularLinkedListNode temp = last.link;
+        while (temp.link != last) {
+            temp = temp.link;
+        }
+        temp.link = last.link;
+        last = temp;
+    }
+
+    public void deleteNode(int data) {
+        if (null == last) {
+            System.out.print("List is empty...");
+            return;
+        }
+        if (last.link == last && last.info == data) {
+            last = null;
+            return;
+        }
+        if (last.link.info == data) {
+            last.link = last.link.link;
+            return;
+        }
+
+        CircularLinkedListNode temp = last.link;
+        while (temp.link != last.link) {
+            if (temp.link.info == data) {
+                break;
+            }
+            temp = temp.link;
+        }
+        if (temp.link == last.link) {
+            System.out.print(data + " is not present in the list.");
+        } else {
+            temp.link = temp.link.link;
+            if (last.info == data) {
+                last = temp;
+            }
+        }
+    }
 }

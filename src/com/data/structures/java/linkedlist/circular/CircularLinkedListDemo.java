@@ -52,6 +52,14 @@ public class CircularLinkedListDemo {
                 case 5 :
                     list.deleteFirst();
                     break;
+                case 6 :
+                    list.deleteLast();
+                    break;
+                case 7 :
+                    System.out.print("Enter the element to be deleted : ");
+                    data = scanner.nextInt();
+                    list.deleteNode(data);
+                    break;
             }
             System.out.println();
         }
