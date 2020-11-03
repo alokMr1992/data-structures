@@ -96,4 +96,17 @@ public class CircularLinkedList {
             }
         }
     }
+
+    public void deleteFirst() {
+        if (null == last) {
+            System.out.print("List is empty...");
+            return;
+        }
+        if (last.link == last) {
+            last = null;
+            return;
+        }
+        last.link = last.link.link;
+    }
+
 }

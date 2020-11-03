@@ -49,6 +49,9 @@ public class CircularLinkedListDemo {
                     element = scanner.nextInt();
                     list.insertAfter(data, element);
                     break;
+                case 5 :
+                    list.deleteFirst();
+                    break;
             }
             System.out.println();
         }
